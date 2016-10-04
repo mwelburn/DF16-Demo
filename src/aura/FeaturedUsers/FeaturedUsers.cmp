@@ -1,0 +1,21 @@
+<!--<aura:component controller="FeaturedUsersController" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">-->
+<aura:component controller="FeaturedUsersController" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="welcomeMsg" type="String" default="Welcome" access="global"/>
+    <aura:attribute name="users" type="UserWrapper[]"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <h3 class="slds-section__title slds-p-bottom--large"><ui:outputText value="{!v.welcomeMsg}"/></h3>
+    
+    <aura:iteration items="{!v.users}" var="theUser">
+        <div class="slds-media slds-media--center">
+            <div class="slds-media__figure">
+                <img src="{!theUser.smallPhotoUrl}"></img>
+            </div>
+            <div class="slds-media__body">
+                <ui:outputText value="{!theUser.name}"/>
+            </div>
+        </div>
+    </aura:iteration>
+    
+</aura:component>

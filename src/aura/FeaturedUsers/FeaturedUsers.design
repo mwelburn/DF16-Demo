@@ -1,0 +1,3 @@
+<design:component label="Newest Community Users">
+	<design:attribute name="welcomeMsg" label="Title" default="Newest Members"/>
+</design:component>

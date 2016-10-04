@@ -1,0 +1,20 @@
+<aura:component controller="FeaturedGroupsController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="title" type="String" default="Featured Groups" access="global"/>
+    <aura:attribute name="groups" type="CollaborationGroup[]"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <h3 class="slds-section__title slds-p-bottom--large"><ui:outputText value="{!v.title}"/></h3>
+    
+    <aura:iteration items="{!v.groups}" var="theGroup">
+        <div class="slds-media slds-media--center">
+            <div class="slds-media__figure">
+                <img src="{!theGroup.SmallPhotoUrl}"></img>
+            </div>
+            <div class="slds-media__body">
+                <ui:outputText value="{!theGroup.Name}"/>
+            </div>
+        </div>
+    </aura:iteration>
+    
+</aura:component>
